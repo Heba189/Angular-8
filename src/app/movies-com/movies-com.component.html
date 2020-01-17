@@ -1,0 +1,23 @@
+<div class="container pt-5 my-5 rounded shadow p-3 bg-white rounded" >
+
+    <div class="navPagination py-2 m-auto rounded w-25 shadow-lg my-5">
+        <ul class="list-unstyled d-flex justify-content-around ">
+            <li (click)="changePage(page)"  *ngFor="let page of pages">{{page}}</li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div  *ngFor="let movie of moviesContainer" class="col-md-4">
+            <div class="movie-card ">
+                <img class="img-fluid" [src]="imagePre+movie.backdrop_path"/>
+                <div class="movie-desc">
+                         <h4>{{movie.title}}</h4>
+                         <p>{{movie.overview}}</p> 
+                </div>
+           
+            </div>
+            <!-- <img class="img-fluid" [src]="movie.urlToImage"> -->
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="containerForm">
+    <div class="container m-5 p-5 rounded">
+    <form [formGroup]='contactsForm' class="w-75" (ngSubmit)='saveForm()'>
+
+        <!-- <h5>{{contactsForm.controls.userName.value}}</h5> -->
+            <div class="form-group">
+                <label for="">UserName</label>
+                <input  type="text" formControlName='userName' class="form-control">
+                <div *ngIf="contactsForm.controls.userName.errors != null && contactsForm.controls.userName.touched " class="alert text-danger">UserName minLenght is 4</div>
+            </div>
+            <div class="form-group">
+                    <label for="">UserMail</label>
+                    <input type="text" formControlName='userMail' class="form-control">
+                    <div *ngIf="contactsForm.controls.userMail.errors != null && contactsForm.controls.userMail.touched " class="alert text-danger">Enter a valid mail</div>
+
+            </div>
+            <div class="form-group">
+                <label for="">Subject</label>
+                <input type="text" formControlName='subject' class="form-control">
+                <div *ngIf="contactsForm.controls.subject.errors != null && contactsForm.controls.subject.touched " class="alert text-danger">Start with Capital letter</div>
+
+            </div>
+
+
+     
+        <button  (ngSubmit)="saveForm()" [disabled]='contactsForm.invalid' type="submit"  class="btn btn-info"> Send</button>
+    </form>
+</div>
+</div>
